@@ -4,8 +4,14 @@
 # pip install flask pymongo passlib
 
 from flask import Flask, render_template
+from pymongo import MongoClient
 
 app = Flask(__name__)
+app.debug = True
+
+# Databaseç
+client = MongoClient('localhost', 27017)
+db = client.user_login_system
 
 # Routes
 from user import routes
