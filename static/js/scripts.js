@@ -11,10 +11,13 @@ $("form[name=signup_form]").submit(function(e) {
         data: data,
         dataType: "json",
         success: function(resp) {
-            console.log(resp);
+            // Command + Shift + R to force reload and solve cache issues in the browser
+            //console.log(resp);
+            window.location.href = "/dashboard/";
+
         },
         error: function(resp) {
-            console.log(resp);
+            //console.log(resp);
             $error.text(resp.responseJSON.error).removeClass("error--hidden");
         }
 
