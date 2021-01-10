@@ -3,8 +3,11 @@
 {% block content %}
     <div class="card-wrapper">
         <div class="card">
-            <h1 class="center">Welcome Back!</h1>
-            <form name="login_form">
+            <h1 class="center">Create an Account</h1>
+            <form name="signup_form">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="field" required>
+
                 <label for="email">Email</label>
                 <input type="email" name="email" class="field" required>
 
@@ -13,9 +16,8 @@
 
                 <p class="error error--hidden"></p>
 
-                <input type="submit" value="Sign In" class="btn">
+                <input type="submit" value="Sign Up" class="btn">
             </form>
-            <p class="center"><a href="/register"><small>Don't have an account? Register here</small></p>
         </div>
     </div>
 {% endblock %}

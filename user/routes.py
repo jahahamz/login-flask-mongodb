@@ -7,5 +7,9 @@ def signup():
     return User().signup()
 
 @app.route('/user/logout/')
-def signout():
+def logout():
     return User().logout()
+
+@app.route('/user/login/', methods=['POST'])
+def login():
+    return User().login()

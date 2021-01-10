@@ -27,12 +27,26 @@ def login_required(f):
             return redirect('/')
     return wrap
 
+def already_logged_in(f):
+    @wraps(f)
+    def wrap(*arg, **kwargs):
+        if 'logged_in' in session:
+            return redirect('/dashboard/')
+        else:
+            return f(*arg, **kwargs)
+    return wrap    
+
 # Routes
 from user import routes
 
 @app.route('/')
+@already_logged_in
 def home():
     return render_template('home.html')
+
+@app.route('/register/')
+def register():
+    return render_template('register.html')
 
 @app.route('/dashboard/')
 @login_required
